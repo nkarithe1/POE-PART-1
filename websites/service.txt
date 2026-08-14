@@ -1,0 +1,89 @@
+<Doctype html>
+    <html>
+        <title>Services</title>
+        <h1 class="center-text">what we build</h1>
+        <hr>
+        <body>
+            <h2>four services we provide</h2>
+            <ul>
+                <lo><h3>custom furniture</h3></lo>
+                <p>Dining tables, benches, bed frames, sideboards and case pieces,<br>
+                    designed to your room's dimensions and built in a solid wood species <br>
+                    of your choice — typically Oregon pine, blackwood, oak or American ash.<br>
+                     Joinery is cut by hand wherever the design allows it, rather than relying<br>
+                      on screws or dowels<br>
+                    From R 8,500 4–8 week lead time Delivered & installed, Gauteng</p>
+                      <ol><h3>Fitted joinery & shopfitting</h3></ol>
+                      <p>Built-in wardrobes, kitchen cabinetry, home libraries and retail fit-outs<br>
+                         such as counters and shelving. We measure the space ourselves before drawing <br>
+                         anything, so fitted pieces are built to fit — not adjusted on installation day.<br>
+                         From R 14,000 6–10 week lead time Site visit included</p>
+                         <ol><h3>Restoration & re-finishing</h3></ol>
+                         <p>Re-gluing loose joints, replacing damaged veneer or timber, and hand-finishing<br>
+                             with oil, wax or shellac to match a piece's original character. We assess every<br>
+                              restoration in person before quoting, since structural condition varies far more<br>
+                               than a photo can show.<br>
+                             From R 1,800 1–3 week lead time Free assessment </p>
+                             <ol><h3>Small commissions & gifts</h3></ol>
+                             <p>Cutting boards, stools, shelving and one-off gift pieces — a lower-cost way to work<br>
+                                 with the workshop, or to try a wood species before committing to a larger piece.<br>
+                                From R 650 1–2 week lead time Local collection or courier </p>
+            </ul>
+            <h2 class="center-text">Every commission includes</h2>
+            <h4>What's built into the price</h4>
+            <img src="images.jpeg"width="40" hieght="40">
+            <h4>A measured drawing</h4>
+            <img src="GMZ2966-4K">
+            <p>A dimensioned drawing before any wood is cut, so you can see the piece before it's built.</p>
+            <h4>Solid wood only</h4>
+            <img src="images33">
+            <p>Solid wood only, no particleboard or veneer over top fake wood — every visible surface <br>
+                is solid, sustainably sourced timber.</p>
+            <h4>A five-year guarantee</h4>
+            <img src="imagesyu">
+            <hr>
+        <h2><p class="center-text">tells what services that you need</p></h2>
+            footer class="site-footer">
+  <div class="footer-grid">
+    <div>
+      <h4>Thembisa and som Woodworks</h4>
+      <p style="max-width:26ch;opacity:0.85;font-size:0.9rem;">Solid-wood furniture and fitted joinery, built on one bench in Linden, Johannesburg since 2014.</p>
+    </div>
+    <div>
+      <h4>Site</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="enquiry.html">Enquire</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Workshop</h4>
+      <ul>
+        <li>14 Kloof Road, Linden</li>
+        <li>Johannesburg, 2195</li>
+        <li>Mon–Fri, 07:30–16:30</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="mailto:hello@thembisonwoodworks.co.za">hello@hearthstonewoodworks.co.za</a></li>
+        <li><a href="tel:+27114567890">011 456 7890</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; <span data-year>2026</span> thembisa and son Woodworks. All rights reserved.</span>
+    <span>Site built for a web development coursework project.</span>
+  </div>
+</footer>
+ 
+<script src="js/script.js"></script>
+</body>
+</html>
+
+        </body>
+    </html>
