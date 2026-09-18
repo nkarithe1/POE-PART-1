@@ -103,6 +103,28 @@ PART 2
 15.Corrected business name and spelling errors throughout (Hearthstone → Thembisa and Son Woodworks)
 16.Removed manual <br> line breaks in favour of natural text wrapping
 
+References:Mozilla Developer Network, 2026. CSS Grid Layout. [Online] Available at: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout [Accessed 18 September 2026].
+
+Mozilla Developer Network, 2026. CSS Flexible Box Layout. [Online] Available at: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_flexible_box_layout [Accessed 18 September 2026].
+
+Mozilla Developer Network, 2026. Using media queries. [Online] Available at: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries [Accessed 18 September 2026].
+
+Mozilla Developer Network, 2026. Pseudo-classes. [Online] Available at: https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes [Accessed 18 September 2026].
+
+Mozilla Developer Network, 2026. box-sizing. [Online] Available at: https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing [Accessed 18 September 2026].
+
+Coyier, C., 2026. A Complete Guide to Flexbox. CSS-Tricks. [Online] Available at: https://css-tricks.com/snippets/css/a-guide-to-flexbox/ [Accessed 18 September 2026].
+
+Coyier, C., 2026. A Complete Guide to Grid. CSS-Tricks. [Online] Available at: https://css-tricks.com/snippets/css/complete-guide-grid/ [Accessed 18 September 2026].
+
+W3Schools, 2026. CSS Units. [Online] Available at: https://www.w3schools.com/cssref/css_units.php [Accessed 18 September 2026].
+
+(Confirm each link still resolves before submitting, and swap in any tutorial or source you actually used while working through the CSS.)
+
+
+
+
+
 
 
 
