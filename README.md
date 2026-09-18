@@ -101,7 +101,7 @@ PART 2
 12.Added proper <form> structure to the Enquiry page (fields weren't wrapped in a form before)
 13.Standardised header/navigation and footer across all five pages
 15.Corrected business name and spelling errors throughout (Hearthstone → Thembisa and Son Woodworks)
-16Removed manual <br> line breaks in favour of natural text wrapping
+16.Removed manual <br> line breaks in favour of natural text wrapping
 
 
 
