@@ -85,3 +85,33 @@ Date	Change
 References
 
 References specific to Hendricks & Sons Carpentry and the researched content used across this project are listed below, in [institution referencing style], and are consolidated here per the assignment requirements..
+
+PART 2
+1.Created external stylesheet (css/style.css) and linked it to all five HTML pages
+2.Added a CSS reset to normalise spacing across browsers
+3.Set base styles: font family, font size, line height, colour scheme
+4.Applied a typography scale for consistent heading sizes (h1–h4)
+5.Built page layout using CSS Grid (card grids) and Flexbox (navigation bar)
+6.Styled buttons, cards, and form fields with borders, shadows, and colour
+7.Added :hover, :focus, and :active states to nav links and buttons
+8.Added two responsive breakpoints (900px tablet, 600px mobile)
+9.Converted multi-column layouts to single-column on smaller screens
+10.Used rem and % units throughout instead of fixed pixel values
+11.Fixed broken/malformed HTML across all pages (unclosed tags, missing <body>, misused list elements)
+12.Added proper <form> structure to the Enquiry page (fields weren't wrapped in a form before)
+13.Standardised header/navigation and footer across all five pages
+15.Corrected business name and spelling errors throughout (Hearthstone → Thembisa and Son Woodworks)
+16Removed manual <br> line breaks in favour of natural text wrapping
+
+
+
+
+
+
+
+
+
+
+
+
+
