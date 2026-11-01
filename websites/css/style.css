@@ -1,6 +1,6 @@
 /* ==========================================
    Thembisa and Son Woodworks
-   style.css - Part 2
+   style.css - Part 2 + Part 3 additions (see end of file)
    ========================================== */
 
 
@@ -32,7 +32,7 @@ a {
 /* ---------- Base styles for the whole site ---------- */
 
 body {
-  font-family: Georgia, serif;
+  font-family: "Open Sans", Arial, sans-serif;
   font-size: 1rem;
   line-height: 1.6;
   color: #2c2420;
@@ -41,7 +41,12 @@ body {
 
 
 /* ---------- Typography ---------- */
-/* Heading sizes go down in steps so they look balanced. */
+/* Heading sizes go down in steps so they look balanced.
+   Merriweather for headings and Open Sans for body text, as chosen in the proposal. */
+
+h1, h2, h3, h4 {
+  font-family: Merriweather, Georgia, serif;
+}
 
 h1 {
   font-size: 2.5rem;
@@ -113,15 +118,15 @@ p {
 }
 
 .grid-2 {
-  grid-template-columns: 50% 50%;
+  grid-template-columns: repeat(2, 1fr);
 }
 
 .grid-3 {
-  grid-template-columns: 33.33% 33.33% 33.33%;
+  grid-template-columns: repeat(3, 1fr);
 }
 
 .grid-4 {
-  grid-template-columns: 25% 25% 25% 25%;
+  grid-template-columns: repeat(4, 1fr);
 }
 
 
@@ -231,7 +236,7 @@ p {
   display: inline-block;
   background-color: #5c3a21;
   color: #f1e8d8;
-  font-family: Georgia, serif;
+  font-family: inherit;
   font-size: 0.875rem;
   padding: 0.75rem 1.5rem;
   border: 2px solid #5c3a21;
@@ -287,7 +292,7 @@ p {
 input {
   width: 100%;
   padding: 0.6rem;
-  font-family: Georgia, serif;
+  font-family: inherit;
   font-size: 1rem;
   border: 1px solid #d9cbb5;
   border-radius: 4px;
@@ -296,7 +301,7 @@ input {
 select {
   width: 100%;
   padding: 0.6rem;
-  font-family: Georgia, serif;
+  font-family: inherit;
   font-size: 1rem;
   border: 1px solid #d9cbb5;
   border-radius: 4px;
@@ -306,7 +311,7 @@ textarea {
   width: 100%;
   min-height: 8rem;
   padding: 0.6rem;
-  font-family: Georgia, serif;
+  font-family: inherit;
   font-size: 1rem;
   border: 1px solid #d9cbb5;
   border-radius: 4px;
@@ -355,8 +360,9 @@ textarea:focus {
   margin-top: 4rem;
 }
 
-.site-footer h4 {
+.site-footer h3 {
   color: #f1e8d8;
+  font-size: 1.125rem;
 }
 
 .site-footer li {
@@ -398,11 +404,11 @@ textarea:focus {
   }
 
   .grid-3 {
-    grid-template-columns: 50% 50%;
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .grid-4 {
-    grid-template-columns: 50% 50%;
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .section {
@@ -442,15 +448,15 @@ textarea:focus {
   }
 
   .grid-2 {
-    grid-template-columns: 100%;
+    grid-template-columns: 1fr;
   }
 
   .grid-3 {
-    grid-template-columns: 100%;
+    grid-template-columns: 1fr;
   }
 
   .grid-4 {
-    grid-template-columns: 100%;
+    grid-template-columns: 1fr;
   }
 
   .hero-actions {
@@ -467,4 +473,858 @@ textarea:focus {
     padding-bottom: 2.5rem;
   }
 
+}
+
+
+/* ==========================================================================
+   PART 3 ADDITIONS
+   Everything below was added for Part 3 (interactivity, forms, SEO).
+   ========================================================================== */
+
+/* ---------- Basics: hidden attribute, skip link, keyboard focus ---------- */
+
+[hidden] {
+  display: none !important;
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background-color: #ffffff;
+  color: #3d2615;
+  padding: 0.75rem 1rem;
+  z-index: 2000;
+}
+
+.skip-link:focus {
+  left: 1rem;
+  top: 1rem;
+}
+
+:focus-visible {
+  outline: 3px solid #3b5d42;
+  outline-offset: 2px;
+}
+
+.site-header :focus-visible,
+.site-footer :focus-visible {
+  outline-color: #f1e8d8;
+}
+
+.text-link {
+  color: #3b5d42;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.text-link:hover {
+  color: #3d2615;
+}
+
+.align-start {
+  align-items: start;
+}
+
+.more-space {
+  margin-top: 2rem;
+}
+
+
+/* ---------- Header: sticky above the map, mobile menu button ---------- */
+
+.site-header {
+  z-index: 1100;
+}
+
+.nav-toggle {
+  display: none;
+  width: 2.75rem;
+  height: 2.75rem;
+  background: transparent;
+  border: 2px solid #f1e8d8;
+  border-radius: 4px;
+  cursor: pointer;
+  position: relative;
+}
+
+.nav-toggle-bar,
+.nav-toggle-bar::before,
+.nav-toggle-bar::after {
+  display: block;
+  width: 1.25rem;
+  height: 2px;
+  background-color: #f1e8d8;
+  position: absolute;
+  left: 50%;
+  margin-left: -0.625rem;
+  transition: transform 0.25s ease, top 0.25s ease, background-color 0.25s ease;
+}
+
+.nav-toggle-bar {
+  top: 50%;
+  margin-top: -1px;
+}
+
+.nav-toggle-bar::before,
+.nav-toggle-bar::after {
+  content: "";
+  margin-left: 0;
+  left: 0;
+}
+
+.nav-toggle-bar::before {
+  top: -7px;
+}
+
+.nav-toggle-bar::after {
+  top: 7px;
+}
+
+.nav-toggle[aria-expanded="true"] .nav-toggle-bar {
+  background-color: transparent;
+}
+
+.nav-toggle[aria-expanded="true"] .nav-toggle-bar::before {
+  top: 0;
+  transform: rotate(45deg);
+}
+
+.nav-toggle[aria-expanded="true"] .nav-toggle-bar::after {
+  top: 0;
+  transform: rotate(-45deg);
+}
+
+@media (max-width: 700px) {
+
+  .nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0;
+  }
+
+  .nav-toggle {
+    display: block;
+  }
+
+  /* the menu slides open under the brand name */
+  .nav-links {
+    flex-direction: column;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    gap: 0;
+    width: 100%;
+    max-height: 0;
+    overflow: hidden;
+    visibility: hidden;
+    transition: max-height 0.3s ease, visibility 0.3s ease;
+  }
+
+  .nav-links.is-open {
+    max-height: 20rem;
+    visibility: visible;
+  }
+
+  .nav-links a {
+    display: block;
+    padding: 0.9rem 0;
+    border-bottom: 1px solid #5c3a21;
+  }
+
+  .nav-links a[aria-current="page"] {
+    border-bottom: 1px solid #5c3a21;
+    color: #ffffff;
+    font-weight: 600;
+  }
+}
+
+/* If JavaScript is switched off the menu must still be usable */
+@media (scripting: none) {
+  .nav-toggle {
+    display: none;
+  }
+
+  .nav-links {
+    max-height: none;
+    visibility: visible;
+  }
+}
+
+
+/* ---------- Animations and transitions ---------- */
+
+/* Hero text fades in on page load */
+.hero .wrap > * {
+  animation: fade-up 0.7s ease both;
+}
+
+.hero .wrap > *:nth-child(2) { animation-delay: 0.1s; }
+.hero .wrap > *:nth-child(3) { animation-delay: 0.2s; }
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Cards and gallery items fade up as they scroll into view.
+   Only applied when JavaScript is running, so nothing is ever hidden without it. */
+@media (scripting: enabled) {
+  .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.card {
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+}
+
+/* Cards that also fade in on scroll keep both transitions
+   (the plain .card rule above would otherwise replace the fade) */
+@media (scripting: enabled) {
+  .card.reveal {
+    transition: opacity 0.6s ease, transform 0.6s ease, box-shadow 0.25s ease;
+  }
+
+  .card.reveal.is-visible {
+    transition: opacity 0.6s ease, transform 0.25s ease, box-shadow 0.25s ease;
+  }
+}
+
+.btn {
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.1s ease;
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btn[aria-pressed="true"] {
+  background-color: #5c3a21;
+  color: #f1e8d8;
+}
+
+/* Visitors who ask their device for less motion get none */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-delay: 0ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+
+/* ---------- Images inside cards and figures ---------- */
+
+.card img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}
+
+.photo {
+  margin: 0;
+}
+
+.photo img {
+  width: 100%;
+  max-height: 28rem;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.photo figcaption,
+.gallery-item figcaption {
+  font-size: 0.875rem;
+  color: #6b5d52;
+  margin-top: 0.5rem;
+}
+
+.card-title {
+  font-size: 1.5rem;
+  margin-top: 0;
+}
+
+.center-text .lede {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+/* ---------- Gallery and lightbox ---------- */
+
+.gallery-item {
+  margin: 0;
+}
+
+.gallery-item a {
+  display: block;
+  overflow: hidden;
+  border-radius: 6px;
+  border: 1px solid #d9cbb5;
+  background-color: #ffffff;
+}
+
+.gallery-item img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.gallery-item a:hover img,
+.gallery-item a:focus-visible img {
+  transform: scale(1.06);
+}
+
+.lightbox {
+  border: none;
+  background: transparent;
+  max-width: 100vw;
+  max-height: 100vh;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  color: #ffffff;
+}
+
+.lightbox[open] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fade-in 0.25s ease;
+}
+
+.lightbox::backdrop {
+  background-color: rgba(20, 12, 6, 0.9);
+}
+
+.lightbox figure {
+  margin: 0;
+  text-align: center;
+  max-width: 80vw;
+}
+
+.lightbox img {
+  max-width: 100%;
+  max-height: 78vh;
+  width: auto;
+  margin: 0 auto;
+  border-radius: 4px;
+}
+
+.lightbox figcaption {
+  margin-top: 0.75rem;
+  font-size: 0.9375rem;
+}
+
+.lightbox-btn {
+  position: absolute;
+  background-color: rgba(241, 232, 216, 0.15);
+  color: #ffffff;
+  border: 2px solid #f1e8d8;
+  border-radius: 50%;
+  width: 3rem;
+  height: 3rem;
+  font-size: 1.75rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.lightbox-btn:hover {
+  background-color: rgba(241, 232, 216, 0.35);
+}
+
+.lightbox-close {
+  top: 1rem;
+  right: 1rem;
+}
+
+.lightbox-prev {
+  left: 1rem;
+  top: 50%;
+  margin-top: -1.5rem;
+}
+
+.lightbox-next {
+  right: 1rem;
+  top: 50%;
+  margin-top: -1.5rem;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+
+/* ---------- Timeline (About page) ---------- */
+
+.timeline {
+  border-left: 3px solid #3b5d42;
+  padding-left: 1.25rem;
+  margin-top: 0.5rem;
+}
+
+.timeline li {
+  margin-bottom: 0.75rem;
+}
+
+
+/* ---------- Services: search bar, badges, modal ---------- */
+
+.filter-bar {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr auto;
+  gap: 1rem;
+  align-items: end;
+  background-color: #f1e8d8;
+  border: 1px solid #d9cbb5;
+  border-radius: 6px;
+  padding: 1.25rem;
+  margin: 1.5rem 0 1rem;
+}
+
+.filter-bar .field {
+  margin-bottom: 0;
+}
+
+.results-count {
+  font-size: 0.875rem;
+  color: #6b5d52;
+  margin-bottom: 1rem;
+}
+
+.empty-state {
+  background-color: #f1e8d8;
+  border-radius: 6px;
+  padding: 1.5rem;
+}
+
+.plain-list li {
+  margin-bottom: 0.75rem;
+}
+
+.badge {
+  display: inline-block;
+  background-color: #3b5d42;
+  color: #ffffff;
+  font-size: 0.75rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  margin-bottom: 0.75rem;
+}
+
+.card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.service-card .price {
+  margin-top: 0.5rem;
+}
+
+.modal {
+  border: none;
+  border-radius: 8px;
+  padding: 2rem;
+  width: 90%;
+  max-width: 34rem;
+  background-color: #ffffff;
+  color: #2c2420;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.35);
+}
+
+.modal[open] {
+  animation: modal-in 0.25s ease;
+}
+
+.modal::backdrop {
+  background-color: rgba(20, 12, 6, 0.65);
+}
+
+.modal h2 {
+  margin-top: 0;
+  padding-right: 2rem;
+}
+
+.modal-subtitle {
+  font-size: 1.125rem;
+  margin-top: 1rem;
+}
+
+.modal-list {
+  list-style: disc;
+  padding-left: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.modal-list li {
+  margin-bottom: 0.35rem;
+}
+
+.modal-close {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  width: 2.25rem;
+  height: 2.25rem;
+  border: none;
+  border-radius: 50%;
+  background-color: #f1e8d8;
+  color: #3d2615;
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.modal-close:hover {
+  background-color: #d9cbb5;
+}
+
+@keyframes modal-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+
+/* ---------- Accordion (FAQ) ---------- */
+
+.accordion {
+  max-width: 48rem;
+  margin-top: 1.5rem;
+}
+
+.accordion-item {
+  background-color: #ffffff;
+  border: 1px solid #d9cbb5;
+  border-radius: 6px;
+  margin-bottom: 0.75rem;
+  overflow: hidden;
+}
+
+.accordion-item h3 {
+  margin: 0;
+  font-size: 1rem;
+  font-family: "Open Sans", Arial, sans-serif;
+}
+
+.accordion-trigger {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  background: transparent;
+  border: none;
+  padding: 1rem 1.25rem;
+  font: inherit;
+  font-weight: 600;
+  color: #3d2615;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.accordion-trigger:hover {
+  background-color: #f1e8d8;
+}
+
+/* the plus turns into a minus when the panel is open */
+.accordion-trigger::after {
+  content: "+";
+  font-size: 1.5rem;
+  line-height: 1;
+  margin-left: 1rem;
+  transition: transform 0.25s ease;
+}
+
+.accordion-trigger[aria-expanded="true"]::after {
+  transform: rotate(45deg);
+}
+
+.accordion-panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  visibility: hidden;
+  transition: grid-template-rows 0.3s ease, visibility 0.3s ease;
+}
+
+.accordion-item.is-open .accordion-panel {
+  grid-template-rows: 1fr;
+  visibility: visible;
+}
+
+.accordion-inner {
+  overflow: hidden;
+}
+
+.accordion-inner p {
+  padding: 0 1.25rem 1rem;
+  margin-bottom: 0;
+}
+
+/* Without JavaScript every answer is simply shown */
+@media (scripting: none) {
+  .accordion-panel {
+    grid-template-rows: 1fr;
+    visibility: visible;
+  }
+}
+
+
+/* ---------- Forms: errors, status, result panel, email preview ---------- */
+
+.error-msg {
+  display: block;
+  color: #aa3333;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+
+.error-msg:empty {
+  display: none;
+}
+
+.field.has-error input,
+.field.has-error select,
+.field.has-error textarea {
+  border-color: #aa3333;
+  background-color: #fdf3f3;
+}
+
+.field.has-error input:focus,
+.field.has-error select:focus,
+.field.has-error textarea:focus {
+  outline-color: #aa3333;
+}
+
+.char-count {
+  display: block;
+  text-align: right;
+  font-size: 0.8125rem;
+  color: #6b5d52;
+  margin-top: 0.25rem;
+}
+
+.form-status {
+  border-radius: 4px;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.form-status.is-error {
+  background-color: #fdf3f3;
+  border: 1px solid #aa3333;
+  color: #7a1f1f;
+}
+
+/* honeypot field: off-screen for people, still present for spam bots */
+.hp-field {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.result-panel {
+  background-color: #f1e8d8;
+  border: 1px solid #3b5d42;
+  border-left-width: 6px;
+  border-radius: 6px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.result-panel h2 {
+  margin-top: 0;
+}
+
+.result-panel:not([hidden]) {
+  animation: fade-up 0.5s ease both;
+}
+
+.result-block {
+  background-color: #ffffff;
+  border-radius: 4px;
+  padding: 1rem 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.result-block h3 {
+  font-size: 1.125rem;
+  margin-bottom: 0.25rem;
+}
+
+.result-block p {
+  margin-bottom: 0;
+}
+
+.email-box {
+  background-color: #ffffff;
+  border: 1px solid #d9cbb5;
+  border-radius: 4px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.email-row {
+  margin-bottom: 0.25rem;
+  word-break: break-word;
+}
+
+.email-body {
+  font-family: inherit;
+  font-size: 0.9375rem;
+  white-space: pre-wrap;
+  word-break: break-word;
+  border-top: 1px solid #d9cbb5;
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+}
+
+.contact-list li {
+  margin-bottom: 0.5rem;
+}
+
+.contact-list a {
+  color: #3b5d42;
+  text-decoration: underline;
+}
+
+
+/* ---------- Interactive map ---------- */
+
+.map-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 1rem 0;
+}
+
+.map {
+  height: 24rem;
+  border: 1px solid #d9cbb5;
+  border-radius: 6px;
+  isolation: isolate; /* keeps Leaflet's internal layers below the sticky header */
+  background-color: #f1e8d8;
+}
+
+.map-fallback {
+  padding: 1.5rem;
+}
+
+.leaflet-popup-content p {
+  margin: 0.25rem 0 0;
+  font-size: 0.875rem;
+}
+
+
+/* ---------- Back-to-top button ---------- */
+
+.back-to-top {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  width: 3rem;
+  height: 3rem;
+  border: 2px solid #f1e8d8;
+  border-radius: 50%;
+  background-color: #3d2615;
+  color: #f1e8d8;
+  font-size: 1.25rem;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease, background-color 0.2s ease;
+  z-index: 900;
+}
+
+.back-to-top.is-shown {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+}
+
+.back-to-top:hover {
+  background-color: #3b5d42;
+}
+
+
+/* ---------- Part 3 responsive tweaks ---------- */
+
+@media (max-width: 900px) {
+  .filter-bar {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .filter-bar .field:first-child {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 600px) {
+  .filter-bar {
+    grid-template-columns: 1fr;
+  }
+
+  .map {
+    height: 20rem;
+  }
+
+  .card-actions .btn {
+    flex: 1 1 auto;
+    text-align: center;
+  }
+
+  .modal {
+    padding: 1.5rem;
+  }
+
+  .lightbox-prev,
+  .lightbox-next {
+    top: auto;
+    bottom: 1rem;
+    margin-top: 0;
+  }
+
+  .lightbox figure {
+    max-width: 92vw;
+  }
 }
