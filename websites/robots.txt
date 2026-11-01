@@ -1,0 +1,7 @@
+# robots.txt for Thembisa and Son Woodworks
+# Everything public may be crawled; the 404 page is not useful in search results.
+User-agent: *
+Allow: /
+Disallow: /404.html
+
+Sitemap: https://thembisaandson.co.za/sitemap.xml
