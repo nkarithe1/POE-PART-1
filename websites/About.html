@@ -3,16 +3,40 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About | Thembisa and Son Woodworks</title>
+  <title>About Us | Thembisa and Son Woodworks, Johannesburg</title>
+  <meta name="description" content="Meet the family woodworking workshop in Linden, Johannesburg. Our history since 2014, our values and the craftspeople who design and build every piece.">
+  <link rel="canonical" href="https://thembisaandson.co.za/about.html">
+  <meta name="theme-color" content="#3d2615">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://tile.openstreetmap.org; connect-src 'self' https://formspree.io; form-action 'self' https://formspree.io mailto:; base-uri 'self'; object-src 'none'">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+
+  <!-- Open Graph / social sharing -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Thembisa and Son Woodworks">
+  <meta property="og:title" content="About Us | Thembisa and Son Woodworks, Johannesburg">
+  <meta property="og:description" content="Meet the family woodworking workshop in Linden, Johannesburg. Our history since 2014, our values and the craftspeople who design and build every piece.">
+  <meta property="og:url" content="https://thembisaandson.co.za/about.html">
+  <meta property="og:image" content="https://thembisaandson.co.za/images/craftsman-planing-oak-workshop.jpg">
+  <meta property="og:locale" content="en_ZA">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Open+Sans:wght@400;600&display=swap">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to main content</a>
 
   <!-- ===== Site header and main navigation ===== -->
   <header class="site-header">
     <nav class="nav" aria-label="Primary">
       <a class="brand" href="index.html">Thembisa and Son Woodworks</a>
-      <ul class="nav-links">
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Open menu">
+        <span class="nav-toggle-bar"></span>
+      </button>
+      <ul class="nav-links" id="primary-nav">
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html" aria-current="page">About</a></li>
         <li><a href="services.html">Services</a></li>
@@ -22,12 +46,12 @@
     </nav>
   </header>
 
-  <main>
+  <main id="main">
 
     <!-- ===== Page intro ===== -->
     <section class="hero">
       <div class="wrap">
-        <h1>Small on purpose</h1>
+        <h1>Small on purpose: a family woodworking workshop in Johannesburg</h1>
         <p class="lede">Thembisa and Son started as a corner shop, where the Thembisa family set out
           to build a legacy producing well-crafted furniture for the people of Gauteng.</p>
       </div>
@@ -36,25 +60,37 @@
     <!-- ===== History ===== -->
     <section class="section">
       <div class="wrap">
-        <h2>How we got here</h2>
-        <p>Thabo Thembisa trained as a carpenter in Pretoria before spending six years restoring
-          furniture for antique dealers in Johannesburg. In 2014 he took a lease on a corner
-          workshop in Linden with one workbench and a set of hand tools inherited from his own
-          teacher.</p>
+        <div class="grid grid-2 align-start">
+          <div>
+            <h2>How we got here</h2>
+            <p>Thabo Thembisa trained as a carpenter in Pretoria before spending six years restoring
+              furniture for antique dealers in Johannesburg. In 2014 he took a lease on a corner
+              workshop in Linden with one workbench and a set of hand tools inherited from his own
+              teacher.</p>
 
-        <p>The business grew by referral, not advertising: a restored church pew led to a dining
-          table, and a dining table led to a fitted kitchen. By 2019 the workshop had outgrown the
-          original corner and moved to its current premises on Kloof Road, where the whole team
-          now works on one open floor.</p>
+            <p>The business grew by referral, not advertising: a restored church pew led to a dining
+              table, and a dining table led to a fitted kitchen. By 2019 the workshop had outgrown the
+              original corner and moved to its current premises on Kloof Road, where the whole team
+              now works on one open floor.</p>
+
+            <p>Today we build <a class="text-link" href="services.html">custom furniture, fitted joinery
+              and restorations</a> for homes and small businesses across Johannesburg.</p>
+          </div>
+          <figure class="photo reveal">
+            <img src="images/craftsman-planing-oak-workshop.jpg" width="452" height="678" loading="lazy" decoding="async"
+              alt="Craftsman in an apron working at a bench in a busy woodworking workshop">
+            <figcaption>Every piece is built on one open workshop floor.</figcaption>
+          </figure>
+        </div>
 
         <h3>Milestones</h3>
-        <ul>
-          <li><strong>2014 — First workshop:</strong> a single bench rented in Linden.</li>
-          <li><strong>2017 — First apprentice:</strong> Naledi Mokwena joins the workshop.</li>
-          <li><strong>2019 — Kloof Road workshop:</strong> the current, larger premises opens.</li>
-          <li><strong>2022 — Melville showroom:</strong> a small display space opens for finished
+        <ul class="timeline">
+          <li><strong>2014 &mdash; First workshop:</strong> a single bench rented in Linden.</li>
+          <li><strong>2017 &mdash; First apprentice:</strong> Naledi Mokwena joins the workshop.</li>
+          <li><strong>2019 &mdash; Kloof Road workshop:</strong> the current, larger premises opens.</li>
+          <li><strong>2022 &mdash; Melville showroom:</strong> a small display space opens for finished
             pieces and consultations.</li>
-          <li><strong>2026 — 240th commission:</strong> a fitted library for a Parkhurst client,
+          <li><strong>2026 &mdash; 240th commission:</strong> a fitted library for a Parkhurst client,
             delivered this year.</li>
         </ul>
       </div>
@@ -64,23 +100,23 @@
     <section class="section section-alt">
       <div class="wrap">
         <div class="grid grid-3">
-          <article class="card">
-            <h3>Why we do it</h3>
+          <article class="card reveal">
+            <h2 class="card-title">Why we do it</h2>
             <p>To build furniture and fitted joinery designed for the specific person and room it's
               made for, using methods and materials that mean the piece is still worth owning in
               thirty years.</p>
           </article>
 
-          <article class="card">
-            <h3>Where we're headed</h3>
-            <p>To stay a workshop, not a factory — growing our skill and our client base without
+          <article class="card reveal">
+            <h2 class="card-title">Where we're headed</h2>
+            <p>To stay a workshop, not a factory &mdash; growing our skill and our client base without
               growing past the point where every piece still passes across the same three benches.</p>
           </article>
 
-          <article class="card">
-            <h3>Who we build for</h3>
+          <article class="card reveal">
+            <h2 class="card-title">Who we build for</h2>
             <p>Mostly Johannesburg homeowners commissioning a single piece or a fitted room. A
-              smaller share are small businesses — cafés, studios and boutiques — needing counters,
+              smaller share are small businesses &mdash; caf&eacute;s, studios and boutiques &mdash; needing counters,
               shelving or a shopfit that has to survive daily use.</p>
           </article>
         </div>
@@ -93,24 +129,28 @@
         <h2>Our team</h2>
 
         <div class="grid grid-3">
-          <article class="card">
+          <article class="card reveal">
             <h3>Thabo Thembisa</h3>
             <p>Leads design and cutting on every commission, and trained under a restoration
               carpenter in Pretoria for eight years before starting the workshop.</p>
           </article>
 
-          <article class="card">
+          <article class="card reveal">
             <h3>Naledi Mokwena</h3>
             <p>Runs scheduling and client fittings, and finishes every piece by hand using oils and
               waxes mixed in-house.</p>
           </article>
 
-          <article class="card">
+          <article class="card reveal">
             <h3>Sipho Ndlovu</h3>
             <p>Two years into a five-year apprenticeship, currently focused on hand-cut dovetail
               and mortise-and-tenon joinery.</p>
           </article>
         </div>
+
+        <p class="center-text more-space">Want to talk about a project?
+          <a class="text-link" href="enquiry.html">Send us an enquiry</a> or
+          <a class="text-link" href="contact.html">get in touch</a>.</p>
       </div>
     </section>
 
@@ -121,12 +161,13 @@
     <div class="wrap">
       <div class="grid grid-4">
         <div>
-          <h4>Thembisa and Son Woodworks</h4>
-          <p>Solid-wood furniture and fitted joinery, built on one bench in Linden,
+          <h3>Thembisa and Son Woodworks</h3>
+          <p>Custom solid-wood furniture and fitted joinery, built on one bench in Linden,
             Johannesburg since 2014.</p>
+          <p><a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">Follow us on Facebook</a></p>
         </div>
         <div>
-          <h4>Site</h4>
+          <h3>Site</h3>
           <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About</a></li>
@@ -136,15 +177,15 @@
           </ul>
         </div>
         <div>
-          <h4>Workshop</h4>
+          <h3>Workshop</h3>
           <ul>
             <li>14 Kloof Road, Linden</li>
             <li>Johannesburg, 2195</li>
-            <li>Mon–Fri, 07:30–16:30</li>
+            <li>Mon&ndash;Fri, 07:30&ndash;16:30</li>
           </ul>
         </div>
         <div>
-          <h4>Contact</h4>
+          <h3>Contact</h3>
           <ul>
             <li><a href="mailto:hello@thembisaandson.co.za">hello@thembisaandson.co.za</a></li>
             <li><a href="tel:+27114567890">011 456 7890</a></li>
@@ -158,5 +199,9 @@
     </div>
   </footer>
 
+  <button id="back-to-top" class="back-to-top" type="button" aria-label="Back to top">&uarr;</button>
+
+  <script src="js/main.js" defer></script>
 </body>
 </html>
+
