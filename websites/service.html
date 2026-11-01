@@ -3,16 +3,40 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Services | Thembisa and Son Woodworks</title>
+  <title>Furniture & Joinery Services | Thembisa and Son Woodworks</title>
+  <meta name="description" content="Custom furniture from R 8,500, fitted joinery and shopfitting from R 14,000, restoration from R 1,800 and small commissions from R 650. Search our services.">
+  <link rel="canonical" href="https://thembisaandson.co.za/services.html">
+  <meta name="theme-color" content="#3d2615">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://tile.openstreetmap.org; connect-src 'self' https://formspree.io; form-action 'self' https://formspree.io mailto:; base-uri 'self'; object-src 'none'">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+
+  <!-- Open Graph / social sharing -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Thembisa and Son Woodworks">
+  <meta property="og:title" content="Furniture & Joinery Services | Thembisa and Son Woodworks">
+  <meta property="og:description" content="Custom furniture from R 8,500, fitted joinery and shopfitting from R 14,000, restoration from R 1,800 and small commissions from R 650. Search our services.">
+  <meta property="og:url" content="https://thembisaandson.co.za/services.html">
+  <meta property="og:image" content="https://thembisaandson.co.za/images/solid-wood-species-samples.jpg">
+  <meta property="og:locale" content="en_ZA">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Open+Sans:wght@400;600&display=swap">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to main content</a>
 
   <!-- ===== Site header and main navigation ===== -->
   <header class="site-header">
     <nav class="nav" aria-label="Primary">
       <a class="brand" href="index.html">Thembisa and Son Woodworks</a>
-      <ul class="nav-links">
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Open menu">
+        <span class="nav-toggle-bar"></span>
+      </button>
+      <ul class="nav-links" id="primary-nav">
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="services.html" aria-current="page">Services</a></li>
@@ -22,57 +46,63 @@
     </nav>
   </header>
 
-  <main>
+  <main id="main">
 
     <!-- ===== Page intro ===== -->
     <section class="hero">
       <div class="wrap">
-        <h1>What we build</h1>
-        <p class="lede">Four services, all built by the same three benches in Linden.</p>
+        <h1>What we build: custom furniture, fitted joinery and restoration</h1>
+        <p class="lede">Four services, all built by the same three benches in Linden, Johannesburg.</p>
       </div>
     </section>
 
-    <!-- ===== Services list ===== -->
+    <!-- ===== Services list (search, filter, sort) ===== -->
     <section class="section">
       <div class="wrap">
         <h2>Four services we provide</h2>
+        <p>Search by what you want made (for example <em>kitchen</em>, <em>table</em> or <em>repair</em>),
+          filter by type of work, or sort by price and lead time.</p>
 
-        <div class="grid grid-2">
-
-          <article class="card">
-            <h3>Custom furniture</h3>
-            <p>Dining tables, benches, bed frames, sideboards and case pieces, designed to your
-              room's dimensions and built in a solid wood species of your choice — typically
-              Oregon pine, blackwood, oak or American ash. Joinery is cut by hand wherever the
-              design allows it, rather than relying on screws or dowels.</p>
-            <p class="price">From R 8,500 · 4–8 week lead time · Delivered &amp; installed, Gauteng</p>
-          </article>
-
-          <article class="card">
-            <h3>Fitted joinery &amp; shopfitting</h3>
-            <p>Built-in wardrobes, kitchen cabinetry, home libraries and retail fit-outs such as
-              counters and shelving. We measure the space ourselves before drawing anything, so
-              fitted pieces are built to fit — not adjusted on installation day.</p>
-            <p class="price">From R 14,000 · 6–10 week lead time · Site visit included</p>
-          </article>
-
-          <article class="card">
-            <h3>Restoration &amp; re-finishing</h3>
-            <p>Re-gluing loose joints, replacing damaged veneer or timber, and hand-finishing with
-              oil, wax or shellac to match a piece's original character. We assess every
-              restoration in person before quoting, since structural condition varies far more
-              than a photo can show.</p>
-            <p class="price">From R 1,800 · 1–3 week lead time · Free assessment</p>
-          </article>
-
-          <article class="card">
-            <h3>Small commissions &amp; gifts</h3>
-            <p>Cutting boards, stools, shelving and one-off gift pieces — a lower-cost way to work
-              with the workshop, or to try a wood species before committing to a larger piece.</p>
-            <p class="price">From R 650 · 1–2 week lead time · Local collection or courier</p>
-          </article>
-
+        <div class="filter-bar" role="search" aria-label="Search and filter services">
+          <div class="field">
+            <label for="service-search">Search services</label>
+            <input type="search" id="service-search" name="q" maxlength="60" autocomplete="off"
+              placeholder="e.g. wardrobe, dining table, repair">
+          </div>
+          <div class="field">
+            <label for="service-category">Type of work</label>
+            <select id="service-category" name="category">
+              <option value="all">All services</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="service-sort">Sort by</label>
+            <select id="service-sort" name="sort">
+              <option value="default">Our order</option>
+              <option value="price-asc">Price: low to high</option>
+              <option value="price-desc">Price: high to low</option>
+              <option value="lead-asc">Shortest lead time</option>
+              <option value="name">Name (A&ndash;Z)</option>
+            </select>
+          </div>
+          <button type="button" id="service-reset" class="btn btn-outline">Clear</button>
         </div>
+
+        <p id="results-count" class="results-count" aria-live="polite"></p>
+
+        <div id="services-list" class="grid grid-2"></div>
+
+        <p id="no-results" class="empty-state" hidden>No services match your search. Try a shorter word
+          such as <em>table</em> or <em>kitchen</em>, or press Clear to see everything.</p>
+
+        <noscript>
+          <ul class="plain-list">
+            <li><strong>Custom furniture</strong> &mdash; from R 8,500 &middot; 4&ndash;8 week lead time &middot; Delivered &amp; installed, Gauteng</li>
+            <li><strong>Fitted joinery &amp; shopfitting</strong> &mdash; from R 14,000 &middot; 6&ndash;10 week lead time &middot; Site visit included</li>
+            <li><strong>Restoration &amp; re-finishing</strong> &mdash; from R 1,800 &middot; 1&ndash;3 week lead time &middot; Free assessment</li>
+            <li><strong>Small commissions &amp; gifts</strong> &mdash; from R 650 &middot; 1&ndash;2 week lead time &middot; Local collection or courier</li>
+          </ul>
+        </noscript>
       </div>
     </section>
 
@@ -84,22 +114,25 @@
 
         <div class="grid grid-3">
 
-          <article class="card">
-            <img src="images/woood.jpg" alt="A dimensioned pencil drawing of a dining table">
+          <article class="card reveal">
+            <img src="images/carpenter-measuring-timber-frame.jpg" width="240" height="336" loading="lazy" decoding="async"
+              alt="Carpenter in a hard hat measuring a timber frame with a tape measure">
             <h3>A measured drawing</h3>
             <p>A dimensioned drawing before any wood is cut, so you can see the piece before it's
               built.</p>
           </article>
 
-          <article class="card">
-            <img src="images/images33.jpeg" alt="Stacked planks of solid hardwood in the workshop">
+          <article class="card reveal">
+            <img src="images/solid-wood-species-samples.jpg" width="678" height="452" loading="lazy" decoding="async"
+              alt="Samples of different solid wood species and finishes arranged on a wooden stand">
             <h3>Solid wood only</h3>
-            <p>No particleboard and no veneer over cheaper board — every visible surface is solid,
+            <p>No particleboard and no veneer over cheaper board &mdash; every visible surface is solid,
               sustainably sourced timber.</p>
           </article>
 
-          <article class="card">
-            <img src="images/imagesyu.jpeg" alt="A finished hand-cut dovetail joint">
+          <article class="card reveal">
+            <img src="images/happy-clients-thumbs-up.jpg" width="540" height="360" loading="lazy" decoding="async"
+              alt="Four people giving a thumbs up to show they are happy with the finished work">
             <h3>A five-year guarantee</h3>
             <p>Every joint we cut is guaranteed for five years. If something fails in normal use,
               we repair it at no cost.</p>
@@ -113,7 +146,9 @@
     <section class="section center-text">
       <div class="wrap">
         <h2>Tell us what you need</h2>
-        <p class="lede">Send through the rough idea and we'll come back with next steps.</p>
+        <p class="lede">Send through the rough idea and we'll come back with next steps. Prefer to see
+          pieces first? Browse the <a class="text-link" href="index.html#gallery">workshop gallery</a>
+          or <a class="text-link" href="contact.html">visit our Melville showroom</a>.</p>
         <div class="hero-actions">
           <a class="btn" href="enquiry.html">Start an enquiry</a>
         </div>
@@ -127,12 +162,13 @@
     <div class="wrap">
       <div class="grid grid-4">
         <div>
-          <h4>Thembisa and Son Woodworks</h4>
-          <p>Solid-wood furniture and fitted joinery, built on one bench in Linden,
+          <h3>Thembisa and Son Woodworks</h3>
+          <p>Custom solid-wood furniture and fitted joinery, built on one bench in Linden,
             Johannesburg since 2014.</p>
+          <p><a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">Follow us on Facebook</a></p>
         </div>
         <div>
-          <h4>Site</h4>
+          <h3>Site</h3>
           <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About</a></li>
@@ -142,15 +178,15 @@
           </ul>
         </div>
         <div>
-          <h4>Workshop</h4>
+          <h3>Workshop</h3>
           <ul>
             <li>14 Kloof Road, Linden</li>
             <li>Johannesburg, 2195</li>
-            <li>Mon–Fri, 07:30–16:30</li>
+            <li>Mon&ndash;Fri, 07:30&ndash;16:30</li>
           </ul>
         </div>
         <div>
-          <h4>Contact</h4>
+          <h3>Contact</h3>
           <ul>
             <li><a href="mailto:hello@thembisaandson.co.za">hello@thembisaandson.co.za</a></li>
             <li><a href="tel:+27114567890">011 456 7890</a></li>
@@ -164,5 +200,11 @@
     </div>
   </footer>
 
+  <button id="back-to-top" class="back-to-top" type="button" aria-label="Back to top">&uarr;</button>
+
+  <script src="js/main.js" defer></script>
+  <script src="js/services-data.js" defer></script>
+  <script src="js/services.js" defer></script>
 </body>
 </html>
+
