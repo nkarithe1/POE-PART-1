@@ -119,234 +119,138 @@ Coyier, C., 2026. A Complete Guide to Grid. CSS-Tricks. [Online] Available at: h
 
 W3Schools, 2026. CSS Units. [Online] Available at: https://www.w3schools.com/cssref/css_units.php [Accessed 18 September 2026].
 
-(Confirm each link still resolves before submitting, and swap in any tutorial or source you actually used while working through the CSS.)
-
 Thembisa and Son Woodworks — WEDE5020 (Part 3)
 
 Student: ST10490034 Module: WEDE5020 Part: 3 — Enhancing Functionality and SEO
 
-A five-page website for Thembisa and Son Woodworks, a small family woodworking workshop in Linden, Johannesburg that builds custom solid-wood furniture, fitted joinery and restorations.
+This is a five-page website for Thembisa and Son Woodworks, a small family workshop in Linden, Johannesburg that builds custom solid-wood furniture, fitted joinery and restorations.
 
-	
-Live site	add your GitHub Pages / Netlify link here after deploying
-GitHub repository	add your repository link here
+Live site: add your GitHub Pages or Netlify link here after deploying GitHub repository: add your repository link here
+
 1. Project structure
-/
-├── index.html          Home (hero, three ways to work, gallery + lightbox, process)
-├── about.html          About (history, milestones, mission, team)
-├── services.html       Services (dynamic cards, search / filter / sort, modal)
-├── enquiry.html        Enquiry form (validation, cost + availability response, AJAX) + FAQ accordion
-├── contact.html        Contact (interactive Leaflet map, validated email form)
-├── 404.html            Custom "page not found" page (not indexed)
-├── robots.txt          Crawler instructions
-├── sitemap.xml         All five pages for search engines
-├── README.md           This file (includes the changelog)
-├── css/
-│   ├── style.css       Site styles (Part 2 styles + Part 3 additions at the end)
-│   ├── leaflet.css     Map library styles (self-hosted)
-│   └── images/         Map marker icons used by leaflet.css
-├── js/
-│   ├── main.js         Nav toggle, scroll animations, back-to-top, accordion, lightbox
-│   ├── services-data.js  The four services as data (used by services.js and forms.js)
-│   ├── services.js     Builds service cards; search, filter, sort; details modal
-│   ├── forms.js        Validation, enquiry estimate, AJAX submit, contact email builder
-│   ├── map.js          Interactive map setup
-│   └── vendor/leaflet.js   Leaflet 1.9.4 (self-hosted, no CDN needed)
-└── images/             Photos (renamed with descriptive file names) + favicon.svg
+index.html        Home page (hero, services overview, gallery with lightbox, process)
+about.html        About page (history, milestones, mission, team)
+services.html     Services page (search, filter, sort, details pop-up)
+enquiry.html      Enquiry form with cost and availability response, plus FAQ accordion
+contact.html      Contact page with interactive map and email form
+404.html          Page-not-found page
+robots.txt        Instructions for search engine crawlers
+sitemap.xml       List of all pages for search engines
+README.md         This file, including the changelog
+css/              style.css (site styles), leaflet.css (map styles)
+js/               main.js, services-data.js, services.js, forms.js, map.js, vendor/leaflet.js
+images/           Photos with descriptive file names, plus favicon.svg
 2. JavaScript enhancements
-Requirement	What was built	Where
-Interactive elements — accordion	FAQ accordion with aria-expanded, smooth open/close and arrow-key / Home / End navigation	enquiry.html, main.js
-Interactive elements — modal	"More details" modal built on the native <dialog> element (Esc to close, click outside to close, focus returns to the button)	services.html, services.js
-Interactive map	Leaflet map with OpenStreetMap tiles, markers and pop-ups for the Linden workshop and Melville showroom, plus buttons that fly to each location	contact.html, map.js
-Animations and transitions	Hero fade-up, cards fade in on scroll (IntersectionObserver), hover lift on cards, sliding mobile menu, accordion height transition, modal and lightbox fade-in, back-to-top button. All animation is switched off for visitors who set reduce motion	style.css, main.js
-Advanced DOM manipulation	Cards, the modal, the lightbox, form results and the email preview are created with createElement / textContent (never innerHTML), so user input can't inject HTML	services.js, forms.js, main.js
-Gallery with lightbox	Six-image gallery; click opens a full-size viewer with Next / Previous / Close, arrow keys, Esc and a "3 of 6" caption. Without JavaScript the thumbnails simply link to the full image	index.html, main.js
-Dynamic content	The four service listings are loaded from services-data.js and rendered by JavaScript. The same data feeds the enquiry-form estimate so prices only exist in one place	services.js, services-data.js
-Search functionality	Live search (matches name, description and keywords such as kitchen, table, repair), type-of-work filter, sort by price / lead time / name, "Showing x of y" count, empty-state message and Clear button. services.html?q=repair pre-fills the search (used by links on the home page)	services.html, services.js
 
-The site works without JavaScript too: the menu stays open, the accordion answers are visible, the gallery links open the images, and a plain list of the four services appears on the services page.
+Interactive elements. The enquiry page has an FAQ accordion where each question opens and closes smoothly and can be used with the keyboard. The services page has a "More details" pop-up (a modal) that shows what each service includes and links to the enquiry form with that service already selected. The home page has a gallery where clicking a photo opens a larger view (a lightbox) with next, previous and close buttons, arrow-key support and a "3 of 6" caption.
 
-3. Form functionality and validation
-enquiry.html — enquire about a service
+Interactive map. The contact page uses the Leaflet library with OpenStreetMap tiles. It shows the Linden workshop and the Melville showroom as markers with pop-ups, and two buttons that move the map to each location. Leaflet is stored inside the project, so no outside code library is needed.
 
-Fields: full name, email, phone (optional), suburb (optional), service, budget, timeline, details.
+Animations and transitions. The hero text fades in, cards fade in as they scroll into view, cards lift slightly on hover, the mobile menu slides open, the accordion expands smoothly and the modal and lightbox fade in. A back-to-top button appears when you scroll down. All animation is switched off for visitors who have asked their device for reduced motion.
 
-Validate (client side, see rules below).
-Process: the page works out a response from the chosen service, budget and timeline:
-Cost: compares the budget range with the service's starting price (below / overlaps / in line).
-Availability: compares the timeframe with the service's lead time (too tight / possible / comfortable).
-Submit with AJAX: the data is sent with fetch() to the URL in the form's action attribute, without reloading the page.
-Present the response: a panel with the cost, availability and next-steps message replaces the form.
-contact.html — general message
+Dynamic content and search. The four services are stored in services-data.js and the services page builds its cards from that data. Visitors can search (for example "kitchen", "table" or "repair"), filter by type of work and sort by price, lead time or name. The page shows how many services match and a friendly message when nothing does. The same data is used by the enquiry form to calculate its estimate, so prices are only written in one place.
 
-Fields: full name, email, phone (optional), message type (General question / Existing order / Press / Other), message.
+Advanced DOM manipulation. Cards, pop-ups, the lightbox, form results and the email preview are all created with JavaScript using createElement and textContent, never innerHTML, so anything a visitor types cannot inject code into the page.
 
-Validate, then compile the details into an email (subject like [Website] Existing order - Name).
-A preview shows the To, Subject and body. The Open in my email app button is a mailto: link addressed to hello@thembisaandson.co.za (the recipient is stored in forms.js as RECIPIENT), so the visitor sends it from their own email program.
-The form's action="mailto:…" is a fallback for browsers with JavaScript turned off.
-Validation rules (both forms)
-Field	Rule
-Name	required, 2–80 characters, letters / spaces / hyphens / apostrophes only
-Email	required, valid format, max 120 characters
-Phone	optional, South African format: 0821234567 or +27821234567 (spaces, dashes and brackets allowed)
-Suburb	optional, max 60 characters
-Service / message type	required
-Details	required, 20–1000 characters, live character counter
-Message	required, 10–1000 characters, live character counter
+The site still works if JavaScript is switched off: the menu stays open, the accordion answers are visible, the gallery photos open as normal links and a plain list of the four services is shown.
 
-Error handling: each field shows its own message under the field (aria-invalid + aria-describedby for screen readers), a summary message appears at the top ("Please fix 3 fields…"), focus moves to the first invalid field, and messages disappear as soon as the problem is fixed. HTML5 attributes (required, type, minlength, maxlength, pattern) are also on the fields as a fallback. A hidden honeypot field catches simple spam bots.
+3. Forms and validation
+
+Enquiry form (enquiry.html). The visitor gives their name, email, optional phone and suburb, the service they need, an approximate budget, a timeframe and details of the piece. The form is checked first. If everything is valid, the page works out a response: it compares the budget with the service's starting price (below, overlapping or in line) and compares the timeframe with the service's lead time (too tight, possible or comfortable). The data is then sent in the background using AJAX (fetch) to the address in the form's action attribute, and the page shows a response panel with the cost, the availability and what happens next, without reloading.
+
+Contact form (contact.html). The visitor gives their name, email, an optional phone number, the type of message (general question, existing order, press or other) and their message. Once it is valid, the details are compiled into an email with a subject such as "[Website] Existing order - Name". A preview shows who it is addressed to, the subject and the body. The "Open in my email app" button is a mailto: link addressed to hello@thembisaandson.co.za, which is set in forms.js, so the visitor sends it from their own email program. The form's action also points to that address as a fallback for browsers without JavaScript.
+
+Validation rules. Names are required, 2 to 80 characters, letters only (spaces, hyphens and apostrophes are allowed). Email is required and must be a valid format. Phone is optional but must be a South African number such as 082 123 4567 or +27 82 123 4567. The suburb is optional and limited to 60 characters. The service or message type must be chosen. The enquiry details must be 20 to 1000 characters and the contact message 10 to 1000 characters, each with a live character counter.
+
+Error handling. Each field shows its own message underneath, a summary message appears at the top of the form, and focus moves to the first problem. Messages disappear as soon as the problem is fixed, and screen readers are told about errors through aria-invalid and aria-describedby. HTML5 attributes (required, type, minlength, maxlength, pattern) are also on the fields as a fallback, and a hidden honeypot field catches simple spam bots.
 
 4. Search Engine Optimisation (SEO)
-4.1 Keyword research
 
-Target audience: Johannesburg homeowners (30–60) and small businesses. Keywords were chosen from the services the workshop actually offers plus the local area.
+Keyword research. The audience is Johannesburg homeowners aged 30 to 60 and small businesses, so the keywords combine the workshop's real services with the local area: custom furniture Johannesburg, solid wood furniture Gauteng, fitted joinery and cabinetry Johannesburg, shopfitting Johannesburg, furniture restoration, woodworking workshop Linden, furniture showroom Melville and request a furniture quote. They are used naturally in the page titles, headings, introductions and image descriptions.
 
-Keyword	Used on
-custom furniture Johannesburg	Home (title, H1), Services, Enquiry
-solid wood furniture Gauteng	Home, About, Services
-fitted joinery / fitted cabinetry Johannesburg	Services (H1, card), Home
-shopfitting Johannesburg	Services, Home
-furniture restoration / re-finishing	Services, Home
-woodworking workshop Linden	About, Contact
-furniture showroom Melville	Contact
-request a furniture quote	Enquiry (title, H1)
-4.2 On-page SEO
-Item	What was done
-Title tags	A unique title of 60 characters or fewer on every page, with the main keyword first and the brand last
-Meta descriptions	A unique description (about 120–165 characters) per page that includes the keyword and a reason to click
-Header tags	Exactly one <h1> per page, with <h2> / <h3> in a logical order (footer headings changed from <h4> to <h3> so no level is skipped)
-Image optimisation	Descriptive file names (e.g. oak-sideboard-living-room.jpg), accurate alt text, width / height on every image, loading="lazy" below the fold
-URL structure	Short, lowercase, descriptive file names: services.html, enquiry.html, about.html, contact.html
-Internal linking	Descriptive link text between pages (e.g. "Explore custom furniture" → services; "visit our Melville showroom" → contact; gallery link from Services) and a "Skip to main content" link
-Mobile-friendliness	Responsive layout, viewport meta tag, hamburger menu on small screens, readable font sizes, buttons with generous padding
-Social sharing	Open Graph tags and twitter:card on every page
-Structured data	FurnitureStore JSON-LD (address, phone, opening hours, area served) on Home and Contact to help Google show the business in local results
-Canonical tags	Each page declares its preferred URL
-4.3 Technical / additional
-Item	What was done
-robots.txt	Allows crawling of the whole site, blocks 404.html, points to the sitemap
-sitemap.xml	Lists all five pages with lastmod, changefreq and priority
-Page speed	All scripts use defer; images are small and lazy-loaded with fixed dimensions (no layout shift); fonts load with display=swap and preconnect; Leaflet is only loaded on the contact page; no jQuery or other large libraries; animations use CSS transform / opacity
-Security	Content-Security-Policy <meta> (scripts only from this site, no inline scripts or styles); rel="noopener noreferrer" on external links; no innerHTML with user input; referrer policy; honeypot spam field; all libraries self-hosted; form data only goes to the endpoint named in action. Note: GitHub Pages cannot set HTTP headers, so the CSP is delivered as a meta tag; it is served over HTTPS by the host.
-4.4 Off-page SEO (plan — these are actions the business takes outside the code)
-Backlinks: ask suppliers (timber merchants, hardware shops), interior designers and architects the workshop already works with to link to the site; list the business in South African directories (e.g. Yellow Pages SA, Cylex, Hotfrog); get a mention in local Johannesburg home and lifestyle blogs when a notable project is completed.
-Social media: replace the outdated Facebook page with regular posts of finished pieces (each post linking back to the matching page), share the gallery photos on Facebook and Instagram, and use consistent hashtags such as #JohannesburgFurniture and #HandmadeInSA. The footer already links to the Facebook page.
-Local SEO: claim and complete a Google Business Profile for both the Linden workshop and the Melville showroom (same name, address and phone number as the website), choose the categories Furniture maker and Furniture store, upload project photos, and ask happy clients for Google reviews. Keep the business name / address / phone identical everywhere.
+On-page SEO. Every page has its own title of 60 characters or fewer and its own meta description. Every page has exactly one <h1> with <h2> and <h3> headings in a logical order. Images have descriptive file names such as oak-sideboard-living-room.jpg, accurate alt text, set width and height and lazy loading below the fold. File names for the pages are short and lowercase (services.html, enquiry.html). Pages link to each other with descriptive link text, for example "Explore custom furniture" or "visit our Melville showroom". The site is mobile-friendly, with a viewport tag, a responsive layout and a hamburger menu on small screens. Each page also has a canonical link, Open Graph and Twitter card tags for social sharing, and the Home and Contact pages include structured data (FurnitureStore JSON-LD) with the address, phone number, opening hours and area served.
+
+Additional SEO. robots.txt allows crawling of the site and points to the sitemap, and sitemap.xml lists all five pages. For page speed, all scripts use defer, images are small and lazy-loaded, fonts use display=swap, Leaflet is only loaded on the contact page and no large libraries such as jQuery are used. For security, a Content-Security-Policy meta tag limits where scripts can come from, there are no inline scripts or styles, external links use rel="noopener noreferrer", user input is never inserted as HTML and all libraries are hosted inside the project. GitHub Pages cannot set HTTP headers, so the policy is set with a meta tag instead.
+
+Off-page SEO (the business's own actions, not code). For backlinks, the workshop can ask suppliers, interior designers and architects it works with to link to the site, list the business in South African directories such as Yellow Pages SA, Cylex and Hotfrog, and try to get mentioned in local Johannesburg home and lifestyle blogs. For social media, the old Facebook page should be replaced with regular posts of finished pieces that link back to the matching pages, and the same photos can be shared on Instagram. The footer already links to Facebook. For local SEO, the business should claim a Google Business Profile for both the Linden workshop and the Melville showroom, use the same name, address and phone number everywhere, choose categories such as furniture maker and furniture store, upload project photos and ask happy clients for reviews.
+
 5. How to run and test
-Open the project folder in VS Code and use the Live Server extension, or just double-click index.html. (The map needs an internet connection for the map tiles.)
-Manual test checklist:
- Home: click each gallery picture, use ←/→ and Esc, check the caption count
- Services: type kitchen, table, repair; change the filter and sort; click More details; press Clear
- Enquiry: submit empty (errors appear), enter a bad email / phone, then a valid form (response panel appears); open each FAQ item
- Contact: use both map buttons, click the markers; submit the form and check the email preview and the Open in my email app button
- Shrink the browser window below 700px and test the hamburger menu
- Tab through every page with the keyboard only
-6. Deployment (free platform)
-Option A — GitHub Pages
-Create a repository on GitHub and upload all the files in this folder (keep index.html in the root).
-Go to Settings → Pages, choose Deploy from a branch, select main and / (root), then Save.
-After a minute the site is live at https://<your-username>.github.io/<repository-name>/.
-Option B — Netlify
 
-Drag the project folder onto https://app.netlify.com/drop. Netlify gives you a live link straight away.
+Open the project folder in VS Code and use the Live Server extension, or double-click index.html. The map needs an internet connection to load its tiles. To test, click through the gallery photos using the arrow keys and Esc, search the services page for "kitchen", "table" and "repair" and try the filter and sort, submit the enquiry form empty and with bad details and then with valid details, use both map buttons, submit the contact form and check the email preview, shrink the browser below 700px to try the hamburger menu, and tab through every page using only the keyboard.
 
-After deploying — update these placeholders
-What	Where	Change to
-Domain https://thembisaandson.co.za/	canonical + Open Graph tags (all pages), sitemap.xml, robots.txt, JSON-LD in index.html and contact.html	your live URL (use Find & Replace across the project)
-YOUR_FORM_ID	action of the form in enquiry.html	your free form ID from https://formspree.io (create a form, copy its ID). Until then the form runs in demo mode and shows a note saying the enquiry was not delivered
-Facebook link	footer of every page	the business's real Facebook page
-Map coordinates	js/map.js	check them against the real addresses on Google Maps (they are approximate)
+6. Deployment
+
+GitHub Pages. Create a repository on GitHub and upload all the files with index.html in the root. Go to Settings, then Pages, choose "Deploy from a branch", select main and the root folder, and save. After a minute the site is live at https://your-username.github.io/repository-name/.
+
+Netlify. Drag the project folder onto https://app.netlify.com/drop and Netlify gives you a live link straight away.
+
+After deploying, update these placeholders. Replace https://thembisaandson.co.za/ with your live link in the canonical and Open Graph tags on every page, in sitemap.xml, in robots.txt and in the structured data on index.html and contact.html (Find and Replace across the project works well). Replace YOUR_FORM_ID in the action of the enquiry form with your free form ID from formspree.io; until then the form runs in demo mode and shows a note that the enquiry was not delivered. Replace the Facebook link in the footer with the business's real page. Check the map coordinates in js/map.js against the real addresses on Google Maps, because they are approximate.
+
 7. Known limitations
-The gallery and "Every commission includes" pictures are the stock photos from Part 2, not photos of the workshop's own completed projects. Replace them with real project photos before the site goes live.
-The business address, phone numbers, email and social link are the sample details used throughout the coursework.
-The enquiry form needs a form-handling service (Formspree) to actually deliver submissions; static hosting cannot receive form data on its own.
-Opening a mailto: link depends on the visitor having an email program or webmail registered on their device.
+
+The gallery and "Every commission includes" photos are the stock photos from Part 2, not photos of the workshop's own finished projects, and should be replaced with real ones before the site goes live. The addresses, phone numbers and email are the sample details used throughout the coursework. The enquiry form needs a form service such as Formspree to deliver submissions, because static hosting cannot receive form data. The contact email button depends on the visitor having an email program or webmail set up on their device.
+
 8. Credits
-Leaflet 1.9.4 (BSD-2-Clause) — interactive map
-Map data © OpenStreetMap contributors
-Fonts: Merriweather and Open Sans from Google Fonts (SIL Open Font License)
-Photos: stock images supplied for the coursework (see limitations above)
+
+Leaflet 1.9.4 (BSD-2-Clause) provides the interactive map. Map data is from OpenStreetMap contributors. The fonts Merriweather and Open Sans come from Google Fonts. The photos are stock images supplied for the coursework.
+
 Changelog
+Version 3.0.0 — 2026-10-26 — Part 3: Enhancing Functionality and SEO
+Added
 
-All edits made after the Part 2 feedback, newest first.
+JavaScript and interactivity. main.js was added to every page and handles the mobile menu toggle, scroll animations, the back-to-top button, the accordion and the gallery lightbox. services-data.js stores the four services as one data list. services.js builds the service cards, adds live search, a type filter, four sort options, a result count, a no-results message, a Clear button and the "More details" modal. forms.js handles validation for both forms, live error messages, character counters, the honeypot, the enquiry cost and availability response, AJAX submission and the contact email builder. map.js and a self-hosted copy of Leaflet 1.9.4 add the interactive map, replacing the two Google Maps iframes. An FAQ accordion with five questions was added to the enquiry page and a six-photo gallery with lightbox was added to the home page. CSS animations and transitions were added, with an override for reduced motion.
 
-[3.0.0] — 2026-10-26 — Part 3: Enhancing Functionality and SEO
-Added — JavaScript and interactivity
-js/main.js — mobile navigation toggle (button with aria-expanded, closes with Esc), scroll-reveal animation using IntersectionObserver, back-to-top button, accordion behaviour, gallery lightbox. Loaded on every page with defer.
-js/services-data.js — the four services (name, description, starting price, lead time, tags, feature list) stored as one data array so prices and lead times are not repeated in several files.
-js/services.js — builds the service cards dynamically, live search (matches name, description, category and keyword tags), type-of-work filter, four sort options, result count (aria-live), no-results message, Clear button, ?q= pre-fill, and a "More details" <dialog> modal with an "Enquire about this service" link that pre-selects the service on the enquiry form.
-js/forms.js — shared validation for both forms (see section 3), live per-field errors, character counters, honeypot, enquiry cost/availability response, AJAX (fetch) submission with success and failure handling, contact-form email compiler with mailto: link and preview.
-js/map.js + self-hosted Leaflet 1.9.4 — interactive map with two markers, pop-ups and fly-to buttons; replaced the two Google Maps iframes.
-FAQ accordion (5 questions) added to enquiry.html.
-Gallery with lightbox (6 images) added to index.html.
-Animations and transitions (CSS): hero fade-up, card fade-in on scroll, card hover lift, sliding mobile menu, accordion expand, modal / lightbox fade-in, hover zoom on gallery images, with a prefers-reduced-motion override.
-Added — SEO and site files
-Unique <title> and meta description on every page, canonical link, Open Graph and Twitter card tags, theme-color.
-FurnitureStore JSON-LD structured data on index.html and contact.html.
-robots.txt, sitemap.xml, 404.html (set to noindex), images/favicon.svg.
-Keyword-focused <h1> headings and intro text on all pages; descriptive internal links between pages (home cards → filtered services, about → services/enquiry, services → gallery/contact, enquiry → services/contact).
-Footer "Follow us on Facebook" link (rel="noopener noreferrer") for the social-media requirement.
-Content-Security-Policy and referrer-policy meta tags; honeypot fields in both forms.
-Added — forms
-enquiry.html: new required Service you need field (needed to calculate cost and availability), minlength / maxlength / pattern attributes, per-field error messages, status banner, character counter, hidden honeypot, action and method="post" attributes, and a result panel for the cost / availability response.
-contact.html: new optional phone field, message-type drop-down now has a "Select a topic" placeholder so the visitor must choose, per-field errors, character counter, action="mailto:…" fallback, "Prepare my email" button and an email preview panel.
+SEO and site files. Every page now has a unique title and meta description, a canonical link, Open Graph and Twitter tags and a theme colour. FurnitureStore structured data was added to the Home and Contact pages. New files are robots.txt, sitemap.xml, 404.html (set to noindex) and images/favicon.svg. Headings and intro text were reworded to include keywords, and pages now link to each other with descriptive link text (home cards link to filtered services, About links to Services and Enquiry, Services links to the gallery and Contact, Enquiry links to Services and Contact). A Facebook link was added to the footer for the social media requirement, and a Content-Security-Policy and referrer policy were added to every page.
+
+Forms. The enquiry form gained a required "Service you need" field (needed to calculate cost and availability), length and pattern attributes, error messages under each field, a status banner at the top, a character counter, a hidden honeypot field, action and method attributes and a result panel. The contact form gained an optional phone field, a "Select a topic" placeholder so the visitor must choose a message type, error messages, a character counter, a mailto: fallback action, a "Prepare my email" button and an email preview panel.
+
 Changed
-Page content for SEO: headings reworded to include keywords (e.g. home <h1> is now "Custom solid-wood furniture and fitted joinery in Johannesburg"; the old business-name heading moved into the title tag and header). Existing wording and facts were kept.
-Navigation (all pages): added a "Skip to main content" link, id="main" on <main>, and a hamburger menu button; the previous mobile layout (a stacked list of links) was replaced by a collapsible menu.
-Footer (all pages): headings changed from <h4> to <h3> (no skipped heading levels); added the Facebook link; CSS selector updated to match.
-services.html: the four service cards are now generated from services-data.js (with a <noscript> list as a fallback) instead of being typed into the HTML.
-contact.html: the map is now interactive; the two location cards no longer contain an iframe each and a "Show the workshop / Show the showroom" button pair controls the map; the page now has an <h2> "Two places to find us" (the old <h1> text) under a keyword <h1>.
-Images: all photos renamed with descriptive names and moved to a lower-case images/ folder (see the table below).
-Cards: card images are cropped to a consistent 4:3 shape with object-fit: cover.
-Old file name	New file name
-cabinent.jpeg	oak-chest-of-drawers.jpg
-images 2.jpeg	oak-sideboard-living-room.jpg
-images33.jpeg	solid-wood-species-samples.jpg
-imagesyu.jpeg	happy-clients-thumbs-up.jpg
-woood.jpg	carpenter-measuring-timber-frame.jpg
-work.jpg	craftsman-planing-oak-workshop.jpg
-carpenter-hand-measuring-wood-people-260nw-2236076557.webp	hand-drawn-measuring-with-set-square.webp (not used on any page — it carries a stock-photo watermark)
+
+Headings were reworded for SEO without changing the facts in the text. For example, the home page <h1> now reads "Custom solid-wood furniture and fitted joinery in Johannesburg", and the business name moved into the page title and header. On every page the navigation gained a "Skip to main content" link, id="main" on the main area and a hamburger menu button that replaces the old stacked links on small screens. Footer headings changed from <h4> to <h3> so no heading level is skipped. The service cards on services.html are now generated from the data file, with a plain list inside <noscript> as a fallback. On contact.html the map is interactive, the two location cards no longer have iframes, and two buttons ("Show the workshop" and "Show the showroom") control the map. Card images are cropped to a consistent 4:3 shape.
+
+All photos were renamed with descriptive names and moved into a lowercase images folder: cabinent.jpeg became oak-chest-of-drawers.jpg, images 2.jpeg became oak-sideboard-living-room.jpg, images33.jpeg became solid-wood-species-samples.jpg, imagesyu.jpeg became happy-clients-thumbs-up.jpg, woood.jpg became carpenter-measuring-timber-frame.jpg, work.jpg became craftsman-planing-oak-workshop.jpg, and the long Shutterstock-numbered .webp file became hand-drawn-measuring-with-set-square.webp. That last image is not used on any page because it carries a stock-photo watermark.
+
 Fixed
-Broken image paths: the HTML pointed to images/… but the folder was named Images. This works on Windows but breaks on GitHub Pages and Netlify (Linux servers are case-sensitive). The folder is now images.
-Wrong image descriptions (alt text) on the Services page: the three "Every commission includes" images were described as a pencil drawing of a table, stacked planks and a dovetail joint, but the photos actually show a carpenter measuring a timber frame, wood species samples and people giving a thumbs up. Alt text rewritten to describe what is really in each photo.
-Grid overflow: .grid-2, .grid-3 and .grid-4 used percentage column widths (e.g. 33.33% × 3) plus a gap, which adds up to more than 100% and pushed cards past the container. Changed to repeat(n, 1fr); the tablet and mobile breakpoints were updated to match.
-Fonts did not match the proposal: the proposal specifies Merriweather (headings) and Open Sans (body) but the CSS used Georgia. Fonts are now loaded as in the proposal with Georgia / Arial as fall-backs. Form controls now inherit the page font instead of being hard-coded.
-Missing keyboard focus on links and buttons: added a visible :focus-visible outline site-wide (light outline on the dark header and footer).
-Heading order: footer <h4> headings appeared straight after <h2>; about-page card titles skipped from <h1> to <h3>. Both corrected.
-Form fields without error feedback: forms previously had required only, with no action, no message when something was wrong and no processing of the data; replaced by the validation and submission described in section 3.
-Sticky header hidden behind the map: gave the header a higher z-index and isolated the map so Leaflet's layers stay beneath it.
-Budget logic: during testing, a budget range such as "R 5,000 – R 15,000" was treated as comfortably above a R 14,000 starting price. The estimate now compares the bottom and top of the range, so it reports "below", "overlaps" or "in line".
+
+Broken image paths. The HTML pointed to images/ but the folder was named Images. This works on Windows but breaks on GitHub Pages and Netlify, which are case-sensitive. The folder is now images.
+
+Wrong alt text. The three "Every commission includes" images on the Services page were described as a pencil drawing of a table, stacked planks and a dovetail joint, but the photos show a carpenter measuring a timber frame, wood samples and people giving a thumbs up. The alt text now describes what is really in each photo.
+
+Grid overflow. The grid classes used percentage widths (for example 33.33% three times) plus a gap, which adds up to more than 100% and pushed cards outside the container. They now use repeat(n, 1fr), and the tablet and mobile breakpoints were updated to match.
+
+Fonts. The proposal specifies Merriweather for headings and Open Sans for body text, but the CSS used Georgia. The fonts are now loaded as in the proposal with Georgia and Arial as fallbacks, and form fields inherit the page font.
+
+Keyboard focus. Links and buttons had no clear focus outline. A visible outline was added site-wide, in a light colour on the dark header and footer.
+
+Heading order. Footer <h4> headings followed <h2> directly, and the About page card titles jumped from <h1> to <h3>. Both were corrected.
+
+Forms without feedback. The Part 2 forms only had required, with no action, no error messages and no processing. They now work as described in section 3.
+
+Header behind the map. The sticky header was covered by the map layers, so it now has a higher z-index and the map is isolated.
+
+Budget logic. During testing, a budget range such as "R 5,000 – R 15,000" was treated as comfortably above a R 14,000 starting price. The estimate now compares both ends of the range and reports below, overlapping or in line.
+
 Testing performed
-Automated checks (jsdom) of 53 behaviours: search, filter, sort, modal, XSS-safety of the search box, every validation rule, the estimate messages, honeypot, AJAX success and failure paths, mailto compiling and encoding, lightbox navigation, accordion, menu toggle and map markers.
-Static checks on all six pages: one <h1> each, title ≤ 60 characters, meta description length, unique ids, every image has alt text and dimensions, all internal links and files exist, no inline scripts or styles (CSP), valid JSON-LD, sitemap URLs match real files.
-[2.1.0] — Corrections to Part 2 feedback
 
-Add the lecturer's Part 2 feedback here, one entry per item, in this format:
+Automated tests (53 checks) covered the search, filter and sort, the modal, protection against HTML injection in the search box, every validation rule, the estimate messages, the honeypot, successful and failed AJAX submission, the email link and its encoding, the lightbox, the accordion, the menu toggle and the map markers. Static checks on all six pages confirmed one <h1> each, titles of 60 characters or fewer, sensible meta description lengths, unique ids, alt text and dimensions on every image, working internal links, no inline scripts or styles, valid structured data and a sitemap that matches the real files.
 
-Feedback received	Change made	File(s) changed
-e.g. "Fonts do not match the proposal"	Merriweather and Open Sans now loaded and applied	css/style.css, all .html
-…	…	…
+Version 2.1.0 — Changes I made to Part 2 after the feedback
 
-(Several corrections that were found while preparing Part 3 are already listed under Fixed above: image folder name, alt text, grid overflow, fonts, focus styles, heading order.)
+Before starting Part 3, I went back through my Part 2 work and corrected the things that were not right.
 
-[2.0.0] — Part 2: Styling and responsive design
-External stylesheet css/style.css with CSS reset, base styles, typography, Grid and Flexbox layout, hover / focus / active states and two responsive breakpoints (900px and 600px).
-Five pages styled with a consistent header, footer, cards and forms in the proposal's colour palette (walnut brown 
+Images not loading online. My pictures were in a folder called Images, but my pages asked for images. That works on my own computer, but it breaks once the site is on GitHub Pages or Netlify, so I renamed the folder to images.
+Wrong picture descriptions. The alt text on the Services page described a pencil drawing, stacked planks and a dovetail joint, but the photos show a carpenter measuring, wood samples and happy clients. I rewrote each description so it matches its photo.
+Cards spilling out of the page. My grid columns were set in percentages and then I added a gap, so the total was more than 100%. I changed them to equal-width columns (1fr) and updated the tablet and mobile layouts to match.
+Fonts did not match my proposal. My proposal says Merriweather for headings and Open Sans for body text, but the CSS was using Georgia. I loaded both fonts and applied them, with Georgia and Arial as backups.
+No clear focus outline. Someone using the keyboard could not tell which link or button was selected, so I added a visible outline to everything you can tab to.
+Heading order. Some headings skipped a level (for example an <h1> straight to an <h3>, and footer <h4> headings right after an <h2>). I fixed the order on every page.
+Forms that did nothing. The Part 2 forms only had required on a few fields. I gave them proper checks, error messages and a working submit, which I describe under Version 3.0.0.
+Version 2.0.0 — Part 2: Styling and responsive design
+
+An external stylesheet (css/style.css) was created with a CSS reset, base styles, typography, Grid and Flexbox layouts, hover, focus and active states and two responsive breakpoints (900px and 600px). All five pages were styled with a consistent header, footer, cards and forms using the proposal's colour palette: walnut brown 
 #5C3A21, sawdust cream 
-#F1E8D8, forest green 
-#3B5D42).
-
-
-
-
-
-
-
-
-
-
-
-
+#F1E8D8 and forest green 
+#3B5D42.
 
 
 
