@@ -255,15 +255,15 @@ using the proposal's colour palette: walnut brown
 
 References 
 
-Agafonkin, V., 2023. Leaflet: an open-source JavaScript library for interactive maps. [online] Available at: https://leafletjs.com/ [Accessed 2 November 2026].
+Agafonkin, V., 2023. Leaflet: an open-source JavaScript library for interactive maps. [online] Available at:< https://leafletjs.com/ >[Accessed 2 November 2026].
 
-Formspree, 2026. Formspree: form backend for static websites. [online] Available at: https://formspree.io/ [Accessed 2 November 2026].
+Formspree, 2026. Formspree: form backend for static websites. [online] Available at:< https://formspree.io/ >[Accessed 2 November 2026].
 
-Google, 2021. Build and submit a sitemap. [online] Available at: https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap [Accessed 2 November 2026].
+Google, 2021. Build and submit a sitemap. [online] Available at:< https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap >[Accessed 2 November 2026].
 
-MDN Web Docs, 2025. Fetch API. [online] Available at: https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API [Accessed 2 November 2026].
+MDN Web Docs, 2025. Fetch API. [online] Available at:< https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API >[Accessed 2 November 2026].
 
-OpenStreetMap contributors, 2025. OpenStreetMap copyright and licence. [online] Available at: https://www.openstreetmap.org/copyright [Accessed 2 November 2026].
+OpenStreetMap contributors, 2025. OpenStreetMap copyright and licence. [online] Available at:< https://www.openstreetmap.org/copyright >[Accessed 2 November 2026].
 
-W3C, 2024. Accordion pattern: WAI-ARIA authoring practices guide. [online] Available at: https://www.w3.org/WAI/ARIA/apg/patterns/accordion/ [Accessed 2 November 2026].
+W3C, 2024. Accordion pattern: WAI-ARIA authoring practices guide. [online] Available at:< https://www.w3.org/WAI/ARIA/apg/patterns/accordion/ >[Accessed 2 November 2026].
 
