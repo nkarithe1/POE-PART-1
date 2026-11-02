@@ -247,10 +247,23 @@ Heading order. Some headings skipped a level (for example an <h1> straight to an
 Forms that did nothing. The Part 2 forms only had required on a few fields. I gave them proper checks, error messages and a working submit, which I describe under Version 3.0.0.
 Version 2.0.0 — Part 2: Styling and responsive design
 
-An external stylesheet (css/style.css) was created with a CSS reset, base styles, typography, Grid and Flexbox layouts, hover, focus and active states and two responsive breakpoints (900px and 600px). All five pages were styled with a consistent header, footer, cards and forms using the proposal's colour palette: walnut brown 
+An external stylesheet (css/style.css) was created with a CSS reset, base styles, typography, Grid and Flexbox layouts, hover, focus and active states and two responsive breakpoints (900px and 600px). All five pages were styled with a consistent header, footer, cards and forms
+using the proposal's colour palette: walnut brown 
 #5C3A21, sawdust cream 
 #F1E8D8 and forest green 
 #3B5D42.
 
+References 
 
+Agafonkin, V., 2023. Leaflet: an open-source JavaScript library for interactive maps. [online] Available at: https://leafletjs.com/ [Accessed 2 November 2026].
+
+Formspree, 2026. Formspree: form backend for static websites. [online] Available at: https://formspree.io/ [Accessed 2 November 2026].
+
+Google, 2021. Build and submit a sitemap. [online] Available at: https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap [Accessed 2 November 2026].
+
+MDN Web Docs, 2025. Fetch API. [online] Available at: https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API [Accessed 2 November 2026].
+
+OpenStreetMap contributors, 2025. OpenStreetMap copyright and licence. [online] Available at: https://www.openstreetmap.org/copyright [Accessed 2 November 2026].
+
+W3C, 2024. Accordion pattern: WAI-ARIA authoring practices guide. [online] Available at: https://www.w3.org/WAI/ARIA/apg/patterns/accordion/ [Accessed 2 November 2026].
 
